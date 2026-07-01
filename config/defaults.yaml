@@ -1,0 +1,96 @@
+# PDMS to RELAP5 Converter — Default Parameters
+# These values are used when PDMS data does not specify them.
+
+# Default pipe parameters
+pipe:
+  roughness: 6.3e-6        # Wall roughness (m)
+  volume_count: 1           # Default volume subdivisions
+
+# Default valve parameters
+valve:
+  valve_type: "mtrvlv"      # RELAP5 valve type keyword
+  roughness: 6.3e-6
+  open_trip: 402            # Trip number for opening
+  close_trip: 403           # Trip number for closing
+  change_rate: 3.33333      # Valve stem change rate
+  initial_position: 1.0     # 1.0 = fully open
+
+# Default junction parameters
+junction:
+  forward_loss: 0.5         # Forward loss coefficient (AF)
+  reverse_loss: 1.0         # Reverse loss coefficient (AR)
+  junction_flags: "0000"    # Junction control flags
+
+# Boundary defaults
+boundary:
+  default_type: "P"         # Default boundary type (P=Pressure)
+  pressure: 8.0e6           # Default pressure (Pa)
+  temperature: 420.75       # Default temperature (K)
+  flow_area: 0.1            # Default flow area (m²)
+
+# Card numbering offsets
+numbering:
+  tmdpvol_start: 200
+  sngljun_start: 300
+  pipe_start: 400
+  valve_start: 500
+
+# Diagram settings
+diagram:
+  topology:
+    layout: "kamada_kawai"  # Layout algorithm
+    figsize: [16, 12]       # Figure size (inches)
+    dpi: 150                # Output resolution
+  nodalization:
+    dpi: 150
+    output_formats: ["png", "svg"]
+    layout:
+      row_spacing: 4.5
+      component_horizontal_gap: 0.30
+      branch_horizontal_gap: 0.20
+      pipe_width_per_volume: 0.35
+      vertical_drop_min: 1.2
+    colors:
+      boundary_fill: "#D6EAF8"
+      pipe_fill: "#FFFFFF"
+      valve_fill: "#FFFFFF"
+      junction_fill: "#333333"
+      cell_partition: "#CCCCCC"
+      main_line: "#1a1a1a"
+      branch_line: "#555555"
+      return_line: "#999999"
+    components:
+      tmdpvol:
+        width: 1.6
+        height: 1.4
+        style: "rounded_rect"
+        show_badge: true
+      pipe:
+        min_width: 1.5
+        max_width: 7.0
+        height: 1.2
+        show_cell_numbers: true
+        show_tap_markers: true
+      valve:
+        width: 1.0
+        height: 1.2
+        style: "bowtie"
+        show_stem: true
+      sngljun:
+        width: 0.40
+        style: "circle"
+
+# RELAP5 header defaults
+header:
+  problem_type: "new"
+  run_option: "run"
+  units: "si"
+  noncond_type: "air"
+  noncond_quality: 1.0
+  end_time: 5.0
+  min_timestep: 1.0e-12
+  max_timestep: 0.5e-4
+  control_option: 3
+  min_edit: 5
+  plot_freq: 10000
+  major_edit: 10000

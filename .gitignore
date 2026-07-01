@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Generated output
+output/*.txt
+output/*.csv
+output/*.png
+output/*.svg
+output/*.html
+!output/.gitkeep
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/

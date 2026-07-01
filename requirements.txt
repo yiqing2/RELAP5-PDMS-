@@ -1,0 +1,14 @@
+# PDMS to RELAP5 Input Deck Converter with Diagram Generation
+# Python >= 3.9
+
+# Diagram generation
+networkx>=3.0
+Pillow>=9.0
+matplotlib>=3.6.0
+
+# Optional: interactive HTML diagrams
+plotly>=5.0
+
+# Development
+pytest>=7.0
+pytest-cov>=4.0
